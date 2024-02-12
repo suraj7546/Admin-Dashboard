@@ -1,11 +1,12 @@
 
 @import "mixin";
+@import "dashboard";
 :root{
     font-family: Inter,system-ui, Avenir,Arial, Helvetica, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 }
- *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -37,5 +38,28 @@
       &::-webkit-scrollbar{
          display: none;
       }
+      >div{
+         margin: 2rem 1rem;
+         >h5{
+            @include heading(2px);
+            opacity: 0.8;
+            margin: 1rem 0;
+   
+         }
+         >ul{
+            @include flex(column,unset,unset,0.5rem);
+            list-style:none;
+            >li{
+               padding: 0.5rem 1rem;
+               border-radius: 10px;
+               >a{
+                color: rgb(0,0,0,0.825);
+                @include flex(row,unset);
+               }
+            }
+         }
+       }
+
     }
+    
 }

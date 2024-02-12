@@ -1,4 +1,4 @@
-@mixin heading($spacing:3px,$weight:300,$case:upper){
+@mixin heading($spacing:3px,$weight:300,$case:uppercase){
         letter-spacing: $spacing;
         font-weight: $weight;
         text-transform: $case;
@@ -6,6 +6,7 @@
 @mixin flex($dir:left,$justifyContent:center,$alignItems:center,$gap:1rem){
     display: flex;
     flex-direction:$dir;
+    justify-content: $justifyContent;
     align-items: $alignItems;
     gap:$gap;
 

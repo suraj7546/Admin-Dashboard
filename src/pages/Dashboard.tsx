@@ -2,7 +2,8 @@ import { BsSearch } from "react-icons/bs"
 import AdminSidebar from "../components/AdminSidebar"
 import { FaRegBell } from "react-icons/fa"
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
-
+import data  from "../assets/data.json";
+import { BarChart } from "../components/Charts";
 const Dashboard = () => {
   return (
     <div className="adminContainer">
@@ -19,6 +20,30 @@ const Dashboard = () => {
       <WidgetItem percent={99}  value={100000} heading="revenue" color="rgb(0,0,0)"/>
       <WidgetItem percent={-20}  value={100000} heading="revenue" color="rgb(0,0,0)"/>
       <WidgetItem percent={-40}  value={100000} heading="revenue" color="rgb(0,0,0)"/>
+
+      </section>
+      <section className="graph-container">
+        <div className="revenue-chart">
+          <h2>Revenue & Transaction</h2>
+          {/* graph */}
+          <BarChart data_1={[300,144,433,655,237,755]} data_2={[432,543,123,563,465,675]} title_1="Revenue" title_2="Transaction"
+           bgColor_1="rgb(0,115,255)" bgColor_2="rgb(53,162,235,0.8)"/>
+        </div>
+        <div className="dashboard-categories"> <h2>Inventory</h2>
+        <div>
+        {
+          data.categories.map((i)=>(
+            <CategoryItem 
+            key={i.heading}
+            heading={i.heading} value={i.value} 
+            color={`hsl(${i.value*7},${i.value}%,50%)`}
+            />
+          ))
+        }
+
+        </div>
+        
+        </div>
 
       </section>
       </main>
@@ -48,5 +73,24 @@ const WidgetItem=({heading,value,percent,color,amount=false}:WidgetItemProps)=>
 </div>
   </article>
 
+
+  interface CategoryItemProps{
+    color:string;
+    value:number;
+    heading:string;
+  }
+const CategoryItem=({color,value,heading}:CategoryItemProps)=>(
+  <div className="category-item">
+    <h5>{heading}</h5>
+    <div>
+      <div style={{backgroundColor:`${color}`,
+      width:`${value}%`}}>
+
+      </div>
+    </div>
+    <span>{value}%</span>
+  </div>
+  
+)
 
 export default Dashboard

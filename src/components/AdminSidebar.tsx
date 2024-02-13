@@ -3,7 +3,10 @@ import {RiDashboardFill, RiShoppingBag3Fill} from 'react-icons/ri'
 import { AiFillFileText } from "react-icons/ai";
 import { IoIosPeople } from "react-icons/io";
 import { IconType } from "react-icons";
-  import { FaChartBar, FaChartLine, FaChartPie } from "react-icons/fa";
+import { FaChartBar, FaChartLine, FaChartPie } from "react-icons/fa";
+import { data } from "../assets/data.json";
+
+
 const AdminSidebar = () => {
   const location=useLocation();
   return (
